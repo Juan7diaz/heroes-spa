@@ -19,6 +19,10 @@ const Navbar = () => {
 						<NavLink className={ ({isActive}) => classStyle(isActive) } to="/dc">
 							DC
 						</NavLink>
+
+						<NavLink className={ ({isActive}) => classStyle(isActive) } to="/search">
+							Search
+						</NavLink>
 					</div>
 				</div>
 
