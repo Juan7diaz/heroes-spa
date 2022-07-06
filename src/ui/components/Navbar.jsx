@@ -1,8 +1,17 @@
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
 
 	const classStyle = (isActive) => isActive ? 'nav-item nav-link active' :  'nav-item nav-link'
+
+	const navigate = useNavigate()
+
+	const onLogout = () => {
+		navigate('/login', {
+			replace: true
+		})
+	}
+	//el replace es para que remplace la ruta en la que me encuentro y no puedo dar arrowback (evita que regrese al historial anterior)
 
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark px-4">
@@ -31,7 +40,7 @@ const Navbar = () => {
 						<span className="nav-item nav-link text-primary">
 							Juan
 						</span>
-						<button className="nav-item nav-link btn">
+						<button className="nav-item nav-link btn" onClick={ onLogout }>
 								Logout
 						</button>
 					</ul>
