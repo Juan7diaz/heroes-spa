@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const HeroCard = ({
   id,
@@ -21,7 +22,13 @@ const HeroCard = ({
               <div className="card-body">
                 <h5 className="card-title">{ superhero }</h5>
                 <p className="card-text">{ alter_ego }</p>
-                <p>{ alter_ego != characters && characters }</p>
+                <p>{ alter_ego !== characters && characters }</p>
+                <p className="card-text">
+                  <small className="text-muted">{ first_appearance }</small>
+                </p>
+                <Link to={`/hero/${ id }`}>
+                  More info
+                </Link>
               </div>
             </div>
           </div>
