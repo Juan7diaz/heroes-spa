@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../auth/context';
 
 const Navbar = () => {
 
@@ -6,12 +8,16 @@ const Navbar = () => {
 
 	const navigate = useNavigate()
 
+	const { authState } = useContext(AuthContext)
+
 	const onLogout = () => {
 		navigate('/login', {
 			replace: true
 		})
 	}
 	//el replace es para que remplace la ruta en la que me encuentro y no puedo dar arrowback (evita que regrese al historial anterior)
+
+	console.log(authState)
 
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark px-4">
@@ -38,7 +44,7 @@ const Navbar = () => {
 				<div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
 					<ul className="navbar-nav ml-auto">
 						<span className="nav-item nav-link text-primary">
-							Juan
+							{authState.user?.name}
 						</span>
 						<button className="nav-item nav-link btn" onClick={ onLogout }>
 								Logout
