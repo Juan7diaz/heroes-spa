@@ -8,16 +8,15 @@ const Navbar = () => {
 
 	const navigate = useNavigate()
 
-	const { authState } = useContext(AuthContext)
+	const { authState, logout } = useContext(AuthContext)
 
 	const onLogout = () => {
+		logout()
 		navigate('/login', {
 			replace: true
 		})
 	}
-	//el replace es para que remplace la ruta en la que me encuentro y no puedo dar arrowback (evita que regrese al historial anterior)
-
-	console.log(authState)
+	//el replace es para que remplacpe la ruta en la que me encuentro y no puedo dar arrowback (evita que regrese al historial anterior)
 
 	return (
 		<nav className="navbar navbar-expand-sm navbar-dark bg-dark px-4">
